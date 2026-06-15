@@ -13,8 +13,9 @@ a = Analysis(
     pathex=[os.path.abspath(".")],
     binaries=st_binaries + altair_binaries,
     datas=st_datas + altair_datas + [
-        ("app.py",  "."),
-        ("GeoDFN",  "GeoDFN"),
+        ("app.py",          "."),
+        ("GeoDFN",          "GeoDFN"),
+        ("logoGeoDFN.png",  "."),
     ],
     hiddenimports=st_hidden + altair_hidden + [
         "streamlit.web.cli",
@@ -47,8 +48,7 @@ exe = EXE(
     strip=False,
     upx=True,
     console=False,   # no terminal window
-    icon=os.path.join("GeoDFN", "logoGeoDFN.png") if os.path.exists(
-        os.path.join("GeoDFN", "logoGeoDFN.png")) else None,
+    icon="logoGeoDFN.ico",
 )
 
 coll = COLLECT(

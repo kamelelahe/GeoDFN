@@ -5,6 +5,7 @@ import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
 import numpy as np
 import streamlit as st
+from PIL import Image
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from GeoDFN.Classes.DFNGenerator import DFNGenerator
@@ -15,9 +16,21 @@ from GeoDFN.Classes._validation import (
     VALID_SPATIAL_PDFS,
 )
 
+# ── Resolve logo path whether running from source or frozen .exe ──────────────
+_base = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+_logo_path = os.path.join(_base, 'logoGeoDFN.png')
+_logo = Image.open(_logo_path) if os.path.exists(_logo_path) else None
+
 # ── Page config ───────────────────────────────────────────────────────────────
-st.set_page_config(page_title="GeoDFN", layout="wide")
-st.title("GeoDFN — Discrete Fracture Network Generator")
+st.set_page_config(page_title="GeoDFN", page_icon=_logo, layout="wide")
+
+# ── Header ────────────────────────────────────────────────────────────────────
+col_logo, col_title = st.columns([1, 8])
+with col_logo:
+    if _logo:
+        st.image(_logo, width=80)
+with col_title:
+    st.title("GeoDFN — Discrete Fracture Network Generator")
 
 # ── Brazil example defaults (one per set) ─────────────────────────────────────
 _D = [
@@ -36,6 +49,8 @@ SET_COLORS = ["#e41a1c", "#377eb8", "#4daf4a", "#984ea3", "#ff7f00"]
 
 # ── Sidebar: domain + aperture ────────────────────────────────────────────────
 with st.sidebar:
+    if _logo:
+        st.image(_logo, use_container_width=True)
     st.header("Domain")
     domain_x    = st.number_input("X length (m)",       value=300.0, min_value=1.0, step=10.0)
     domain_y    = st.number_input("Y length (m)",       value=600.0, min_value=1.0, step=10.0)
