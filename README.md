@@ -172,6 +172,14 @@ The `Datasets/Brazil/Apodi.txt` file contains real fracture data from the Apodi 
 
 ---
 
+## Citation
+
+If you use GeoDFN in your research, please cite:
+
+> Kamel Targhi, E., et al. "From outcrop observations to dynamic simulations: an efficient workflow for generating ensembles of geologically plausible fracture networks and assessing their impact on flow and transport." *Geoenergy* 3.1 (2025): geoenergy2025-028.
+
+---
+
 ## License
 
-MIT License. See [LICENSE](LICENSE) for details.
+MIT License — Copyright (c) 2025 Elahe Kamel Targhi. See [LICENSE](LICENSE) for details.
