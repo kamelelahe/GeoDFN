@@ -3,6 +3,7 @@ from multiprocessing import freeze_support
 from .Classes.DFNGeneratorWithSeed import DFNGeneratorWithSeed
 
 DFNname = '13Brazil-withSeeds'
+output_dir = 'DFNs'
 domainLengthX = 300
 domainLengthY = 600
 
@@ -80,7 +81,8 @@ domainLengthY = 600
 
 def main():
     DFNGeneratorWithSeed(domainLengthX, domainLengthY, [set1, set2, set3], apertureCalculationParameters, DFNname,
-                         IsMultipleStressAzimuths=IsMultipleStressAzimuths, stressAzimuth=stressAzimuth)
+                         IsMultipleStressAzimuths=IsMultipleStressAzimuths, stressAzimuth=stressAzimuth,
+                         output_dir=output_dir)
 
 
 if __name__ == "__main__":

@@ -10,6 +10,7 @@ from .bufferZoneCalculator import bufferZoneCalculator
 from .fractureLengthPDFs import fractureLengthPDFs
 from .spatialDistributionPDFs import SpatialDistributionPDFs
 from .orientationPDFs import OrientationPDFs
+from ._validation import validate_inputs
 
 import matplotlib.colors as mcolors
 
@@ -19,11 +20,13 @@ logger = logging.getLogger(__name__)
 class DFNGenerator:
 
     def __init__(self, domainLengthX, domainLengthY, sets, apertureCalculationParameters, DFNName,
-                 numOfRealizations=1, IsMultipleStressAzimuths=False, stressAzimuth=None, savePic=True):
+                 numOfRealizations=1, IsMultipleStressAzimuths=False, stressAzimuth=None, savePic=True,
+                 output_dir='DFNs'):
+        validate_inputs(domainLengthX, domainLengthY, sets, apertureCalculationParameters, numOfRealizations)
         self.maxtries = []
         self.xmax = domainLengthX
         self.ymax = domainLengthY
-        self.outputDir = 'DFNs/' + str(DFNName)
+        self.outputDir = os.path.join(output_dir, str(DFNName))
         self.apertureCalculation = apertureCalculator(apertureCalculationParameters, stage='first')
         self.numberOfMaxTries = 400000
         self._sets = sets
@@ -40,6 +43,7 @@ class DFNGenerator:
         IsMultipleStressAzimuths = self._IsMultipleStressAzimuths
         stressAzimuth = self._stressAzimuth
         savePic = self._savePic
+        self.realizations = []
 
         for i in range(self._numOfRealizations):
             logger.info('Section A: generate fractures')
@@ -70,6 +74,7 @@ class DFNGenerator:
                 fileID.write(f"Number of iterations for each set: {self.maxtries}\n")
 
             if not any(t > self.numberOfMaxTries for t in self.maxtries):
+                self.realizations.append(allProcessedFractureSets)
                 if IsMultipleStressAzimuths:
                     self._stressAzimuth = stressAzimuth
                     for azimuth in stressAzimuth:

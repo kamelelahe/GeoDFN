@@ -50,6 +50,44 @@ def test_dfn_generator_runs(tmp_path, monkeypatch):
     assert gen is not None
 
 
+def test_realizations_are_accessible(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    gen = DFNGenerator(
+        domainLengthX=200,
+        domainLengthY=200,
+        sets=[MINIMAL_SET],
+        apertureCalculationParameters=MINIMAL_APERTURE_PARAMS,
+        DFNName='test_realizations',
+        numOfRealizations=2,
+        savePic=False,
+    )
+    assert hasattr(gen, 'realizations')
+    assert len(gen.realizations) == 2
+    first_realization = gen.realizations[0]
+    assert len(first_realization) == 1
+    fractures = first_realization[0]
+    assert isinstance(fractures, list)
+    assert len(fractures) > 0
+    assert 'x_start' in fractures[0]
+    assert 'fracture length' in fractures[0]
+
+
+def test_output_dir_parameter(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    custom_dir = str(tmp_path / 'my_output')
+    gen = DFNGenerator(
+        domainLengthX=50,
+        domainLengthY=50,
+        sets=[MINIMAL_SET],
+        apertureCalculationParameters=MINIMAL_APERTURE_PARAMS,
+        DFNName='test_dir',
+        numOfRealizations=1,
+        savePic=False,
+        output_dir=custom_dir,
+    )
+    assert os.path.isdir(os.path.join(custom_dir, 'test_dir'))
+
+
 def test_compute_intensity():
     gen = object.__new__(DFNGenerator)
     gen.xmax = 100.0

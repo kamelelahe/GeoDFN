@@ -3,6 +3,7 @@ from multiprocessing import freeze_support
 from .Classes.DFNGeneratorWithSeedAndExclusion import DFNGeneratorWithSeedAndExclusion
 
 DFNname = '16Brazil-withSeedsAndExclusion'
+output_dir = 'DFNs'
 domainLengthX = 300
 domainLengthY = 600
 
@@ -81,7 +82,7 @@ domainLengthY = 600
 def main():
     DFNGeneratorWithSeedAndExclusion(domainLengthX, domainLengthY, [set1, set2, set3], apertureCalculationParameters,
                                      DFNname, IsMultipleStressAzimuths=IsMultipleStressAzimuths,
-                                     stressAzimuth=stressAzimuth)
+                                     stressAzimuth=stressAzimuth, output_dir=output_dir)
 
 
 if __name__ == "__main__":

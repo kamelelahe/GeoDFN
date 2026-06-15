@@ -3,6 +3,7 @@ from multiprocessing import freeze_support
 from .Classes.DFNGenerator import DFNGenerator
 
 DFNname = '12Brazil-forPaper'
+output_dir = 'DFNs'
 domainLengthX = 300
 domainLengthY = 600
 
@@ -77,7 +78,8 @@ domainLengthY = 600
 
 def main():
     DFNGenerator(domainLengthX, domainLengthY, [set1, set2, set3], apertureCalculationParameters, DFNname,
-                 numOfRealizations=10, IsMultipleStressAzimuths=IsMultipleStressAzimuths, stressAzimuth=stressAzimuth)
+                 numOfRealizations=10, IsMultipleStressAzimuths=IsMultipleStressAzimuths,
+                 stressAzimuth=stressAzimuth, output_dir=output_dir)
 
 
 if __name__ == "__main__":

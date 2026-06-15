@@ -4,6 +4,7 @@ from multiprocessing import freeze_support
 
 numOfRealizations = 1
 DFNname = 'Brazil-aperture'
+output_dir = 'DFNs'
 domainLengthX = 300
 domainLengthY = 600
 
@@ -64,7 +65,8 @@ stressAzimuth = [0, 45, 90]
 
 def main():
     DFNGenerator(domainLengthX, domainLengthY, [set1, set2, set3], apertureCalculationParameters, DFNname,
-                 numOfRealizations, IsMultipleStressAzimuths=IsMultipleStressAzimuths, stressAzimuth=stressAzimuth)
+                 numOfRealizations, IsMultipleStressAzimuths=IsMultipleStressAzimuths,
+                 stressAzimuth=stressAzimuth, output_dir=output_dir)
 
 
 if __name__ == "__main__":

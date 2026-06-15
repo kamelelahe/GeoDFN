@@ -10,6 +10,7 @@ from .bufferZoneCalculator import bufferZoneCalculator
 from .fractureLengthPDFs import fractureLengthPDFs
 from .spatialDistributionPDFs import SpatialDistributionPDFs
 from .orientationPDFs import OrientationPDFs
+from ._validation import validate_inputs_with_seed
 
 import matplotlib.colors as mcolors
 
@@ -19,11 +20,13 @@ logger = logging.getLogger(__name__)
 class DFNGeneratorWithSeed:
 
     def __init__(self, domainLengthX, domainLengthY, sets, apertureCalculationParameters, DFNName,
-                 num_realizations=10, IsMultipleStressAzimuths=False, stressAzimuth=None, savePic=True):
+                 num_realizations=10, IsMultipleStressAzimuths=False, stressAzimuth=None, savePic=True,
+                 output_dir='DFNs'):
+        validate_inputs_with_seed(domainLengthX, domainLengthY, sets, apertureCalculationParameters, num_realizations)
         self.maxtries = []
         self.xmax = domainLengthX
         self.ymax = domainLengthY
-        self.outputDir = 'DFNs/' + str(DFNName)
+        self.outputDir = os.path.join(output_dir, str(DFNName))
         self.apertureCalculation = apertureCalculator(apertureCalculationParameters, stage='first')
         self._sets = sets
         self._apertureCalculationParameters = apertureCalculationParameters
@@ -39,6 +42,7 @@ class DFNGeneratorWithSeed:
         IsMultipleStressAzimuths = self._IsMultipleStressAzimuths
         stressAzimuth = self._stressAzimuth
         savePic = self._savePic
+        self.realizations = []
 
         for i in range(self._num_realizations):
             logger.info('Section A: generate fractures')
@@ -79,6 +83,7 @@ class DFNGeneratorWithSeed:
             if IsMultipleStressAzimuths:
                 self._write_corrected_apertures('correlatedAperture', allProcessedFractureSets, number=i)
                 self._plot_corrected_apertures('aperturePerStrikeTotal', allProcessedFractureSets, number=i)
+            self.realizations.append(allProcessedFractureSets)
 
         logger.info('maxtries= %s', self.maxtries)
         maxtriesDir = os.path.join(self.outputDir, 'tries')
