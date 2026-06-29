@@ -41,30 +41,9 @@ It ships in two forms - a **desktop app** for interactive use, and a **Python li
 
 ## Get Started
 
-### Option A - Desktop App (no Python required)
+### Option A - Python API
 
-The easiest way to get started - no installation needed:
-
-1. [Download the application](https://github.com/kamelelahe/GeoDFN/releases/latest/download/GeoDFN-v2.0.0-Windows.zip)
-2. Unzip the file
-3. Double-click **GeoDFN.exe** - your browser opens with the interface
-
-### Option B - Run the GUI locally
-
-If you have Python installed, you can run the interface directly without downloading the desktop app:
-
-```bash
-git clone https://github.com/kamelelahe/GeoDFN.git
-cd GeoDFN
-pip install -r requirements.txt
-streamlit run app.py
-```
-
-Your browser will open automatically with the same interface as the desktop app.
-
-### Option C - Python API
-
-For scripting, batch generation, or integration into simulation pipelines, you can install GeoDFN directly via pip:
+For scripting, batch generation, or integration into simulation pipelines, install GeoDFN directly via pip:
 
 ```bash
 pip install GeoDFN
@@ -96,6 +75,25 @@ gen = DFNGenerator(
 
 print(f"{len(gen.realizations)} realizations generated")
 ```
+
+### Option B - Desktop App (no Python required)
+
+The easiest way to get started without any installation:
+
+1. [Download the application](https://github.com/kamelelahe/GeoDFN/releases/latest/download/GeoDFN-v2.0.0-Windows.zip)
+2. Unzip the file
+3. Double-click **GeoDFN.exe** - your browser opens with the interface
+
+### Option C - Run the GUI locally
+
+If you have Python installed, you can run the interface directly:
+
+```bash
+pip install GeoDFN
+streamlit run app.py
+```
+
+Your browser will open automatically with the full interface.
 
 ---
 
