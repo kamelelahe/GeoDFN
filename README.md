@@ -49,22 +49,25 @@ The easiest way to get started - no installation needed:
 2. Unzip the file
 3. Double-click **GeoDFN.exe** - your browser opens with the interface
 
-### Option B - Run the GUI locally
+### Option B - Python
 
-If you have Python installed, you can run the interface directly without downloading the desktop app:
+Clone the repository and install dependencies:
 
 ```bash
 git clone https://github.com/kamelelahe/GeoDFN.git
 cd GeoDFN
 pip install -r requirements.txt
+```
+
+To use the same GUI as the desktop app, run:
+
+```bash
 streamlit run app.py
 ```
 
-Your browser will open automatically with the same interface as the desktop app.
+Your browser will open automatically with the full interface.
 
-### Option C - Python API
-
-For scripting, batch generation, or integration into simulation pipelines, you can use GeoDFN directly as a Python library. Below is an example:
+Alternatively, you can use GeoDFN directly as a Python library for scripting, batch generation, or integration into simulation pipelines. Below is an example:
 
 ```python
 import numpy as np
