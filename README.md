@@ -64,7 +64,13 @@ Your browser will open automatically with the same interface as the desktop app.
 
 ### Option C - Python API
 
-For scripting, batch generation, or integration into simulation pipelines, you can use GeoDFN directly as a Python library. Below is an example:
+For scripting, batch generation, or integration into simulation pipelines, you can install GeoDFN directly via pip:
+
+```bash
+pip install GeoDFN
+```
+
+Below is an example:
 
 ```python
 import numpy as np
@@ -98,7 +104,7 @@ print(f"{len(gen.realizations)} realizations generated")
 | | Desktop GUI | Python API |
 |---|---|---|
 | **Best for** | Visual exploration, parameter tuning, quick results | Large ensembles, batch generation, simulation pipelines |
-| **Setup** | Download & double-click | `pip install -r requirements.txt` |
+| **Setup** | Download & double-click | `pip install GeoDFN` |
 | **Realizations** | Interactive, one run at a time | Hundreds to thousands, fully automated |
 
 > For uncertainty quantification studies and generating training data for machine-learning emulators, we recommend the Python API. It allows full automation over the parameter space that defines the fracture network ensemble.
