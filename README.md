@@ -28,7 +28,7 @@ Fractures are ubiquitous in geological formations and can significantly influenc
 
 GeoDFN uses a **hybrid mechanical-statistical approach**: fracture lengths, orientations, and spacings are sampled from probability distributions fitted to field data, while fracture placement follows a mechanical rule - fractures are inserted sequentially (longest first), and each new fracture must respect the **stress shadow** (buffer zone) of existing fractures. This prevents unrealistically close spacing and produces fracture patterns that are geologically consistent without the high computational cost of full fracture growth simulations.
 
-The result is an ensemble of equiprobable fracture networks that honour the statistical properties of the outcrop, can be constrained by observed clustering or exclusion zones, and feed directly into multi-purpose flow and transport simulators.
+The result is an ensemble of equiprobable fracture networks that honour the statistical properties of the outcrop and can be fed directly into multi-purpose flow and transport simulators such as MRST, DARTS ,and ... .
 
 It ships in two forms - a **desktop app** for interactive use, and a **Python library** for scripting and large-scale ensemble generation.
 
