@@ -45,7 +45,7 @@ It ships in two forms - a **desktop app** for interactive use, and a **Python li
 
 The easiest way to get started - no installation needed:
 
-1. Click the **[Download](https://github.com/kamelelahe/GeoDFN/releases/latest/download/GeoDFN-v2.0.0-Windows.zip)** button above
+1. [Download the application](https://github.com/kamelelahe/GeoDFN/releases/latest/download/GeoDFN-v2.0.0-Windows.zip)
 2. Unzip the file
 3. Double-click **GeoDFN.exe** - your browser opens with the interface
 
