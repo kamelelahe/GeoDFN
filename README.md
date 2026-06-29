@@ -4,9 +4,9 @@
 
 # GeoDFN
 
-### Stochastic Discrete Fracture Network Generator
+### Geologically Consistent Discrete Fracture Network Generator
 
-Generate geologically realistic fracture networks from field statistics - with a point-and-click interface or a Python API.
+Generate ensembles of geologically plausible fracture networks from outcrop statistics - ready for flow and transport simulations.
 
 <br/>
 
@@ -24,9 +24,13 @@ Generate geologically realistic fracture networks from field statistics - with a
 
 ## What is GeoDFN?
 
-GeoDFN generates stochastic 2D Discrete Fracture Networks calibrated from geological field observations. Starting from outcrop statistics, it produces geologically plausible fracture network ensembles ready for flow, transport, and geomechanical simulations.
+Fractures are ubiquitous in geological formations and can significantly influence heat and mass transfer in geothermal systems, groundwater management, and CO₂ storage. GeoDFN provides a computationally efficient workflow that bridges outcrop observations and dynamic flow simulations.
 
-It ships in two forms - a **desktop app** for interactive use, and a **Python library** for scripting and large-scale batch generation.
+GeoDFN uses a **hybrid mechanical-statistical approach**: fracture lengths, orientations, and spacings are sampled from probability distributions fitted to field data, while fracture placement follows a mechanical rule - fractures are inserted sequentially (longest first), and each new fracture must respect the **stress shadow** (buffer zone) of existing fractures. This prevents unrealistically close spacing and produces fracture patterns that are geologically consistent without the high computational cost of full fracture growth simulations.
+
+The result is an ensemble of equiprobable fracture networks that honour the statistical properties of the outcrop, can be constrained by observed clustering or exclusion zones, and feed directly into multi-purpose flow and transport simulators.
+
+It ships in two forms - a **desktop app** for interactive use, and a **Python library** for scripting and large-scale ensemble generation.
 
 ---
 
@@ -36,7 +40,7 @@ It ships in two forms - a **desktop app** for interactive use, and a **Python li
 
 1. Click the **Download** button above
 2. Unzip the file
-3. Double-click **GeoDFN.exe** → your browser opens with the interface
+3. Double-click **GeoDFN.exe** - your browser opens with the interface
 
 ### Option B - Python API
 
@@ -81,7 +85,7 @@ print(f"{len(gen.realizations)} realizations generated")
 | **Setup** | Download & double-click | `pip install -r requirements.txt` |
 | **Realizations** | Interactive, one run at a time | Hundreds to thousands, fully automated |
 
-> For synthetic dataset generation and uncertainty quantification studies, we recommend the Python API. It allows full automation over parameter spaces that would be impractical to configure manually through an interface.
+> For uncertainty quantification studies and generating training data for machine-learning emulators, we recommend the Python API. It allows full automation over the parameter space that defines the fracture network ensemble.
 
 ---
 
@@ -92,6 +96,7 @@ print(f"{len(gen.realizations)} realizations generated")
 | **Fracture length** | Log-Normal · Power-law · Exponential · Constant |
 | **Orientation** | Von-Mises · Uniform · Constant |
 | **Spatial distribution** | Power-law · Log-Normal · Uniform |
+| **Stress shadow (buffer zone)** | Constant width · Linear scaling with fracture length |
 | **Aperture model** | Constant · Sub-linear scaling · Barton-Bandis · Lepillier |
 | **Stress correction** | Multi-azimuth stress-dependent aperture |
 | **Output** | Coordinates · Apertures · Statistics · Stereonets · Visualizations |
