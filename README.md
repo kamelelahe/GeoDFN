@@ -17,6 +17,11 @@ Generate ensembles of geologically plausible fracture networks from outcrop stat
 [![CI](https://github.com/kamelelahe/GeoDFN/actions/workflows/ci.yml/badge.svg)](https://github.com/kamelelahe/GeoDFN/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
+[![DOI](https://img.shields.io/badge/DOI-10.1144%2Fgeoenergy2025--028-blue)](https://doi.org/10.1144/geoenergy2025-028)
+
+<br/>
+
+**Publication:** Kamel Targhi et al. (2025) - [From outcrop observations to dynamic simulations: an efficient workflow for generating ensembles of geologically plausible fracture networks and assessing their impact on flow and transport](https://doi.org/10.1144/geoenergy2025-028) - *Geoenergy*
 
 </div>
 
@@ -28,7 +33,7 @@ Fractures are ubiquitous in geological formations and can significantly influenc
 
 GeoDFN uses a **hybrid mechanical-statistical approach**: fracture lengths, orientations, and spacings are sampled from probability distributions fitted to field data, while fracture placement follows a mechanical rule - fractures are inserted sequentially (longest first), and each new fracture must respect the **stress shadow** (buffer zone) of existing fractures. This prevents unrealistically close spacing and produces fracture patterns that are geologically consistent without the high computational cost of full fracture growth simulations.
 
-The result is an ensemble of equiprobable fracture networks that honour the statistical properties of the outcrop and can be fed directly into multi-purpose flow and transport simulators such as MRST, DARTS ,and ... .
+The result is an ensemble of equiprobable fracture networks that honour the statistical properties of the outcrop and can be fed directly into multi-purpose flow and transport simulators such as [MRST](https://www.sintef.no/projectweb/mrst/), [DuMux](https://dumux.org/), [DARTS](https://darts.citg.tudelft.nl/), [PorePy](https://github.com/pmgbergen/porepy), and [OpenCSMP](https://opencsmp.github.io/).
 
 It ships in two forms - a **desktop app** for interactive use, and a **Python library** for scripting and large-scale ensemble generation.
 
