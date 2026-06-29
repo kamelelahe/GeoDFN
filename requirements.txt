@@ -1,4 +1,5 @@
-numpy
-scipy
-matplotlib
-numba
+numpy==2.4.6
+scipy==1.17.1
+matplotlib==3.10.9
+streamlit==1.58.0
+Pillow==12.2.0
