@@ -30,7 +30,7 @@ It ships in two forms - a **desktop app** for interactive use, and a **Python li
 
 ---
 
-## Get Started in 3 Steps
+## Get Started
 
 ### Option A - Desktop App (no Python required)
 
@@ -110,14 +110,6 @@ DFNs/<name>/
 ├── orientationStereographic/  # Stereonet plots
 ├── outputPropertiesTotal/     # Network statistics
 └── pics/                      # DFN visualizations
-```
-
-Results are also available in memory after generation:
-
-```python
-fractures = gen.realizations[0][0]           # realization 0, set 0
-print(fractures[0]['fracture length'])        # length in metres
-print(fractures[0]['fracture aperture'])      # aperture in metres
 ```
 
 ---
