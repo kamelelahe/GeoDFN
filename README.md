@@ -6,7 +6,7 @@
 
 ### Stochastic Discrete Fracture Network Generator
 
-Generate geologically realistic fracture networks from field statistics — with a point-and-click interface or a Python API.
+Generate geologically realistic fracture networks from field statistics - with a point-and-click interface or a Python API.
 
 <br/>
 
@@ -26,19 +26,19 @@ Generate geologically realistic fracture networks from field statistics — with
 
 GeoDFN generates stochastic 2D Discrete Fracture Networks calibrated from geological field observations. Starting from outcrop statistics, it produces geologically plausible fracture network ensembles ready for flow, transport, and geomechanical simulations.
 
-It ships in two forms — a **desktop app** for interactive use, and a **Python library** for scripting and large-scale batch generation.
+It ships in two forms - a **desktop app** for interactive use, and a **Python library** for scripting and large-scale batch generation.
 
 ---
 
 ## Get Started in 3 Steps
 
-### Option A — Desktop App (no Python required)
+### Option A - Desktop App (no Python required)
 
 1. Click the **Download** button above
 2. Unzip the file
 3. Double-click **GeoDFN.exe** → your browser opens with the interface
 
-### Option B — Python API
+### Option B - Python API
 
 ```bash
 git clone https://github.com/kamelelahe/GeoDFN.git
@@ -93,7 +93,6 @@ print(f"{len(gen.realizations)} realizations generated")
 | **Orientation** | Von-Mises · Uniform · Constant |
 | **Spatial distribution** | Power-law · Log-Normal · Uniform |
 | **Aperture model** | Constant · Sub-linear scaling · Barton-Bandis · Lepillier |
-| **Placement constraints** | Fixed seed points · Exclusion zones · Buffer spacing |
 | **Stress correction** | Multi-azimuth stress-dependent aperture |
 | **Output** | Coordinates · Apertures · Statistics · Stereonets · Visualizations |
 
@@ -147,7 +146,7 @@ pip install pyinstaller
 python -m PyInstaller geodfn.spec --noconfirm
 ```
 
-Distributable is generated in `dist/GeoDFN/`. Share the entire folder — users double-click `GeoDFN.exe`.
+Distributable is generated in `dist/GeoDFN/`. Share the entire folder - users double-click `GeoDFN.exe`.
 
 ### Project structure
 
@@ -178,12 +177,6 @@ geodfn.spec     # PyInstaller build spec
 
 ---
 
-## Dataset
-
-`Datasets/Brazil/Apodi.txt` contains fracture trace data from the Apodi carbonate formation (Potiguar Basin, NE Brazil), used to calibrate the provided examples.
-
----
-
 ## Citation
 
 If you use GeoDFN in your research, please cite:
@@ -194,4 +187,4 @@ If you use GeoDFN in your research, please cite:
 
 ## License
 
-MIT License — © 2025 Elahe Kamel Targhi. See [LICENSE](LICENSE) for details.
+MIT License - © 2025 Elahe Kamel Targhi. See [LICENSE](LICENSE) for details.
