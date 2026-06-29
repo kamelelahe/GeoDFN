@@ -530,3 +530,15 @@ if "gen" in st.session_state:
                             f'<span style="color:{color}">■</span> **Set {s_idx + 1}:** {len(fset)} fractures',
                             unsafe_allow_html=True,
                         )
+
+st.divider()
+st.markdown(
+    "<div style='text-align:center; color:#888; font-size:0.8rem;'>"
+    "If you use GeoDFN in your research, please cite:<br>"
+    "Kamel Targhi, E., et al. <i>From outcrop observations to dynamic simulations: an efficient workflow for generating "
+    "ensembles of geologically plausible fracture networks and assessing their impact on flow and transport.</i> "
+    "Geoenergy 3.1 (2025): geoenergy2025-028. "
+    "<a href='https://doi.org/10.1144/geoenergy2025-028' target='_blank'>https://doi.org/10.1144/geoenergy2025-028</a>"
+    "</div>",
+    unsafe_allow_html=True,
+)
