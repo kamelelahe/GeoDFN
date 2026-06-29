@@ -64,7 +64,15 @@ Your browser will open automatically with the same interface as the desktop app.
 
 ### Option C - Python API
 
-For scripting, batch generation, or integration into simulation pipelines, you can use GeoDFN directly as a Python library. Below is an example:
+For scripting, batch generation, or integration into simulation pipelines, you can use GeoDFN directly as a Python library.
+
+```bash
+git clone https://github.com/kamelelahe/GeoDFN.git
+cd GeoDFN
+pip install -r requirements.txt
+```
+
+Below is an example:
 
 ```python
 import numpy as np
