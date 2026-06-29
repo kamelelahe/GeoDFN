@@ -23,7 +23,7 @@ class DFNGeneratorWithSeedAndExclusion:
 
     def __init__(self, domainLengthX, domainLengthY, sets, apertureCalculationParameters, DFNName,
                  num_realizations=10, IsMultipleStressAzimuths=False, stressAzimuth=None, savePic=True,
-                 output_dir='DFNs'):
+                 output_dir='DFNs', progress_callback=None):
         validate_inputs_with_seed(domainLengthX, domainLengthY, sets, apertureCalculationParameters, num_realizations)
         self.exclusion_zones = [((175, 0), (0, 450), (0, 0)),
                                 ((300, 220), (200, 600), (300, 600))]
@@ -39,6 +39,7 @@ class DFNGeneratorWithSeedAndExclusion:
         self._IsMultipleStressAzimuths = IsMultipleStressAzimuths
         self._stressAzimuth = stressAzimuth
         self._savePic = savePic
+        self._progress_callback = progress_callback
         self.generate()
 
     def generate(self):
@@ -89,6 +90,8 @@ class DFNGeneratorWithSeedAndExclusion:
                 self._write_corrected_apertures('correlatedAperture', allProcessedFractureSets, number=i)
                 self._plot_corrected_apertures('aperturePerStrikeTotal', allProcessedFractureSets, number=i)
             self.realizations.append(allProcessedFractureSets)
+            if self._progress_callback:
+                self._progress_callback(i + 1, self._num_realizations)
 
         logger.info('maxtries= %s', self.maxtries)
         maxtriesDir = os.path.join(self.outputDir, 'tries')

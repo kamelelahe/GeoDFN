@@ -21,7 +21,7 @@ class DFNGenerator:
 
     def __init__(self, domainLengthX, domainLengthY, sets, apertureCalculationParameters, DFNName,
                  numOfRealizations=1, IsMultipleStressAzimuths=False, stressAzimuth=None, savePic=True,
-                 output_dir='DFNs'):
+                 output_dir='DFNs', progress_callback=None):
         validate_inputs(domainLengthX, domainLengthY, sets, apertureCalculationParameters, numOfRealizations)
         self.maxtries = []
         self.xmax = domainLengthX
@@ -35,6 +35,7 @@ class DFNGenerator:
         self._IsMultipleStressAzimuths = IsMultipleStressAzimuths
         self._stressAzimuth = stressAzimuth
         self._savePic = savePic
+        self._progress_callback = progress_callback
         self.generate()
 
     def generate(self):
@@ -98,6 +99,9 @@ class DFNGenerator:
                 if IsMultipleStressAzimuths:
                     self._write_corrected_apertures('correlatedAperture', allProcessedFractureSets, number=i)
                     self._plot_corrected_apertures('aperturePerStrikeTotal', allProcessedFractureSets, number=i)
+
+            if self._progress_callback:
+                self._progress_callback(i + 1, self._numOfRealizations)
 
     def _place_longest_fracture(self, longestFracture):
         referenceWithinDomain = False
