@@ -233,12 +233,12 @@ st.divider()
 
 # ── Row 3: Domain ─────────────────────────────────────────────────────────────
 c = st.columns(_G)
-_lbl(c[0], "X length (m)")
+_lbl(c[0], "Domain length - X (m)")
 with c[1]:
-    domain_x = st.number_input("X length (m)", min_value=1.0, step=10.0, key="domain_x", label_visibility="collapsed")
-_lbl(c[2], "Y length (m)")
+    domain_x = st.number_input("Domain length - X (m)", min_value=1.0, step=10.0, key="domain_x", label_visibility="collapsed")
+_lbl(c[2], "Domain width - Y (m)")
 with c[3]:
-    domain_y = st.number_input("Y length (m)", min_value=1.0, step=10.0, key="domain_y", label_visibility="collapsed")
+    domain_y = st.number_input("Domain width - Y (m)", min_value=1.0, step=10.0, key="domain_y", label_visibility="collapsed")
 _lbl(c[4], "Number of Fracture sets")
 with c[5]:
     n_sets = st.number_input("Fracture sets", min_value=1, max_value=5, step=1, key="n_sets", label_visibility="collapsed")
